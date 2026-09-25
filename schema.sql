@@ -15,11 +15,19 @@ CREATE TABLE Academic_Risk_Logs (
     calculated_on DATE DEFAULT SYSDATE
 );
 
--- Sample Data Insertion
-INSERT INTO Students VALUES (101, 'Vasundhara Yadav', 'CS-AI', 3.85, 94.5);
-INSERT INTO Students VALUES (102, 'Rohan Sharma', 'CS', 2.40, 72.0);
+-- Sample Data
+INSERT INTO Students
+    (student_id, full_name, department, gpa, attendance_rate)
+VALUES
+    (101, 'Vasundhara Yadav', 'CS-AI', 3.85, 94.5);
+
+INSERT INTO Students
+    (student_id, full_name, department, gpa, attendance_rate)
+VALUES
+    (102, 'Rohan Sharma', 'CSE', 2.40, 72.0);
 
 -- Query to identify students requiring academic intervention
 SELECT student_id, full_name, gpa, attendance_rate
 FROM Students
-WHERE gpa < 3.0 OR attendance_rate < 75.0;
+WHERE gpa < 3.0
+   OR attendance_rate < 75.0;
